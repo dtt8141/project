@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     <div role="tabpanel">
                         <ul class="nav nav-tabs" role="tablist">                            
-                            <li role="presentation" class="active">
+                            <li role="presentation">
                                 <a href="#users" aria-controls="users" role="tab" data-toggle="tab">
                                     <i class="fa fa-user"></i> Users
                                 </a>
@@ -39,7 +39,7 @@
                         </ul>
                         <br />
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="users">
+                            <div role="tabpanel" class="tab-pane " id="users">
                                 @include('partials.users', ['users' => $data['users']])
                             </div>
                             <div role="tabpanel" class="tab-pane" id="products">
@@ -48,8 +48,8 @@
                             <div role="tabpanel" class="tab-pane" id="distributor">
                                 @include('partials.distributors', ['distributors' => $data['distributors']]) 
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="sales">
-                                @include('partials.sales', ['sales' => $data['sales']])
+                            <div role="tabpanel" class="tab-pane active" id="sales">
+                                @include('partials.sales', ['sales' => $data['sales'], 'products' => $data['products']])
                             </div>
                             <div role="tabpanel" class="tab-pane" id="customers">
                                 @include('partials.customers', ['customers' => $data['customers']]) 

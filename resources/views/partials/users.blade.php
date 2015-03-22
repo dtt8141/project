@@ -1,6 +1,6 @@
 
 <h2 class="text-center" >Users List</h2>
-<hr/><table class="table">
+<hr/><table class="table table-hover">
     <thead>
         <tr>
             <th>ID</th>
