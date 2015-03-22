@@ -1,0 +1,6 @@
+{
+  "name": "geekHero",
+  "dependencies": {
+    "font-awesome": "~4.3.0"
+  }
+}
