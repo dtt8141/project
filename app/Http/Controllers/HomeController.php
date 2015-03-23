@@ -6,7 +6,7 @@ use App\Distributors;
 use App\Customers;
 use Request;
 class HomeController extends Controller {
-qwe
+
 	/*
 	|--------------------------------------------------------------------------
 	| Home Controller
