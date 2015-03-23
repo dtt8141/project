@@ -13,7 +13,7 @@ class Product extends Model {
                 'description' => 10,
                 'price' => 10,
                 'stocks' => 10,
-                'distributor' => 10
+                'distributor' => 10,
             ]
         ];
 }
