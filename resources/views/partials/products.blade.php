@@ -28,7 +28,7 @@
                 <input type="text" name="product_distributor" id="product_distributor" class="form-control" placeholder="Distributor" />
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add Product</button>
+                <button class="btn btn-primary pull-right" id="add-product"><i class="fa fa-plus"></i> &nbsp; Add Product</button>
             </div>
         </form>
     </div>

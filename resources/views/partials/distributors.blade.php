@@ -1,5 +1,6 @@
 @if(Auth::user()->is_admin)
 <h2 class="text-center" >Add Distributor</h2>
+
 <hr />
 <div class="row">
     <div class="col-md-12">
@@ -7,18 +8,18 @@
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
             <div class="form-group col-md-4">
                 <label for=="name"><strong>Distributor Name:</strong></label>
-                <input type="text" name="name" class="form-control" placeholder="Enter Distributor Name" />
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Distributor Name" />
             </div>
             <div class="form-group col-md-4">
                 <label for=="address"><strong>Address:</strong></label>
-                <input type="text" name="address" class="form-control" placeholder="Enter Address" />
+                <input type="text" name="address" id="address" class="form-control" placeholder="Enter Address" />
             </div>
             <div class="form-group col-md-4">
                 <label for=="phone"><strong>Phone:</strong></label>
-                <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" />
+                <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter Phone Number" />
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add Distributor</button>
+                <button class="btn btn-primary pull-right" id="add-distributor"><i class="fa fa-plus"></i> &nbsp; Add Distributor</button>
             </div>
         </form>
     </div>
@@ -27,7 +28,17 @@
 @endif
 
 <h2 class="text-center" >Distributors List</h2>
-
+<form action="search_distributor" method="POST" id="user-search-form">
+    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+    <div class="row">
+        <div class="form-group col-md-10">
+            <input type="text" id="search_name" name="search_name" class="form-control col-lg-10" placeholder="Search: name, address, ..." />            
+        </div>
+        <div class="form-group col-md-2">           
+            <button class="btn btn-primary pull-left" id="search_btn" style="width:100%;"><i class="fa fa-search"></i> &nbsp;Search</button>
+        </div>
+    </div>
+</form>
 <hr /><table class="table table-hover">
     <thead>
         <tr>

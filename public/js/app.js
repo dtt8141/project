@@ -37,6 +37,25 @@ $(function () {
             return false;
         }
     });
+      $('#add-product').click(function(){
+        $product_name = $('#product_name').val();
+        $product_description = $('#product_description').val();
+        $product_price = $('#product_price').val();
+        $product_stocks = $('#product_stocks').val();
+        $product_distributor = $('#product_distributor').val();
+        if($product_name === "" || $product_description === "" || $product_price === "" || $product_stocks === "" || $product_distributor === ""){
+            alert("empty required fields");            
+            return false;
+        }
+    });  $('#add-distributor').click(function(){
+        $name = $('#name').val();
+        $address = $('#address').val();
+        $phone = $('#phone').val();
+        if($name === "" || $address === "" || $phone === "" ){
+            alert("empty required fields");            
+            return false;
+        }
+    });
 
 });
 

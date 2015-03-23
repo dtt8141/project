@@ -27,6 +27,17 @@
 @endif
 
 <h2 class="text-center" >Customers List</h2>
+<form action="search_customer" method="POST" id="user-search-form">
+    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+    <div class="row">
+        <div class="form-group col-md-10">
+            <input type="text" id="search_name" name="search_name" class="form-control col-lg-10" placeholder="Search: name, address, ..." />            
+        </div>
+        <div class="form-group col-md-2">           
+            <button class="btn btn-primary pull-left" id="search_btn" style="width:100%;"><i class="fa fa-search"></i> &nbsp;Search</button>
+        </div>
+    </div>
+</form>
 <hr/>
 <div class="row">
     <div class="col-md-12">

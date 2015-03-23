@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Product extends Model {
-
+        use SearchableTrait;
 	protected $fillable = ['name', 'description', 'price', 'stocks', 'distributor'];
         
            protected $searchable = [

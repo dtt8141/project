@@ -22,6 +22,8 @@ Route::post('add_distributor', 'HomeController@add_distributor');
 Route::post('add_customer', 'HomeController@add_customer');
 Route::post('search_user', 'HomeController@search_user');
 Route::post('search_product', 'HomeController@search_product');
+Route::post('search_distributor', 'HomeController@search_distributor');
+Route::post('search_customer', 'HomeController@search_customer');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

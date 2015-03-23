@@ -132,5 +132,25 @@ class HomeController extends Controller {
             $data['customers'] = Customers::all();
             return view('home', compact('data'));
         }
+            public function search_distributor() {
+            $data = [];
+            $search_name = Request::input('search_name');                 
+            $data['users'] = User::all();
+            $data['products'] = Product::all();                     
+            $data['sales'] = Sales::all();       
+            $data['distributors'] = Distributors::search($search_name)->get();  
+            $data['customers'] = Customers::all();
+            return view('home', compact('data'));
+        }
+           public function search_customer() {
+            $data = [];
+            $search_name = Request::input('search_name');                 
+            $data['users'] = User::all();
+            $data['products'] = Product::all();                     
+            $data['sales'] = Sales::all();       
+            $data['distributors'] = Distributors::all();
+            $data['customers'] = Customers::search($search_name)->get();  
+            return view('home', compact('data'));
+        }
 
 }
