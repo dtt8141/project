@@ -111,5 +111,16 @@ class HomeController extends Controller {
            
            return redirect('home');
         }
+        
+        public function search_user() {
+            $data = [];
+            $search_name = Request::input('search_name');                 
+            $data['users'] = User::search($search_name)->get();
+            $data['products'] = Product::all();                        
+            $data['sales'] = Sales::all();       
+            $data['distributors'] = Distributors::all();
+            $data['customers'] = Customers::all();
+            return view('home', compact('data'));
+        }
 
 }

@@ -20,6 +20,7 @@ Route::post('add_products', 'HomeController@add_products');
 Route::get('del_products', 'HomeController@del_products');
 Route::post('add_distributor', 'HomeController@add_distributor');
 Route::post('add_customer', 'HomeController@add_customer');
+Route::post('search_user', 'HomeController@search_user');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
