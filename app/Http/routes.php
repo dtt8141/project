@@ -14,6 +14,12 @@
 Route::get('/', 'WelcomeController@index');
 //Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
+Route::post('add_sales', 'HomeController@add_sales');
+Route::post('del_products', 'HomeController@del_products');
+Route::post('add_products', 'HomeController@add_products');
+Route::get('del_products', 'HomeController@del_products');
+Route::post('add_distributor', 'HomeController@add_distributor');
+Route::post('add_customer', 'HomeController@add_customer');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

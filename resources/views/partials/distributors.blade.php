@@ -3,17 +3,18 @@
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <form action="">
+        <<form action="add_distributor" method="POST" id="distributor-form">
+            <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
             <div class="form-group col-md-4">
-                <label for=="product_name"><strong>Distributor Name:</strong></label>
+                <label for=="name"><strong>Distributor Name:</strong></label>
                 <input type="text" name="name" class="form-control" placeholder="Enter Distributor Name" />
             </div>
             <div class="form-group col-md-4">
-                <label for=="product_description"><strong>Address:</strong></label>
+                <label for=="address"><strong>Address:</strong></label>
                 <input type="text" name="address" class="form-control" placeholder="Enter Address" />
             </div>
             <div class="form-group col-md-4">
-                <label for=="product_price"><strong>Phone:</strong></label>
+                <label for=="phone"><strong>Phone:</strong></label>
                 <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" />
             </div>
             <div class="form-group col-md-12">

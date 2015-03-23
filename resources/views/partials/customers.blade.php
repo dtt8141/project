@@ -3,21 +3,22 @@
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <form action="">
+      <form action="add_customer" method="POST" id="customer-form">
+            <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
             <div class="form-group col-md-4">
-                <label for=="product_name"><strong>Name:</strong></label>
-                <input type="text" name="name" class="form-control" placeholder="Enter Name" />
+                <label for=="name"><strong>Name:</strong></label>
+                <input type="text" id="customer_name" name="name" class="form-control" placeholder="Enter Name" />
             </div>
             <div class="form-group col-md-4">
-                <label for=="product_description"><strong>Address:</strong></label>
-                <input type="text" name="address" class="form-control" placeholder="Enter Address" />
+                <label for=="address"><strong>Address:</strong></label>
+                <input type="text" id="customer_address" name="address" class="form-control" placeholder="Enter Address" />
             </div>
             <div class="form-group col-md-4">
-                <label for=="product_price"><strong>Phone:</strong></label>
+                <label for=="phone"><strong>Phone:</strong></label>
                 <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" />
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add Customer</button>
+                <button class="btn btn-primary pull-right" id="add-customer"><i class="fa fa-plus"></i> &nbsp; Add Customer</button>
             </div>
         </form>
     </div>

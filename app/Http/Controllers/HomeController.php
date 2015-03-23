@@ -4,6 +4,7 @@ use App\Product;
 use App\Sales;
 use App\Distributors;
 use App\Customers;
+use Request;
 class HomeController extends Controller {
 
 	/*
@@ -43,5 +44,72 @@ class HomeController extends Controller {
             return view('home', compact('data'));           
             
 	}       
+        
+        public function add_sales() {
+            $id = Request::input('sf-product-name');
+            $product = Product::find($id);
+            $amount = Request::input('sf-amount');            
+            Sales::create([
+                'name' => $product->name,
+                'amount' => $amount
+            ]);
+            $product->stocks = $product->stocks - $amount;
+            $product->save();            
+            return redirect('home');
+        }
+        
+        public function del_products() {
+            $id = Request::input('id');
+            return Input::all();
+        }
+        public function add_products(){
+           $name = Request::input('product_name');
+           $description = Request::input('product_description');
+           $price = Request::input('product_price');
+           $stocks = Request::input('product_stocks');
+           $distributor = Request::input('product_distributor');
+           Product::create([
+            'name' => $name,
+            'description' => $description,
+            'price' => $price,
+            'stocks' => $stocks,
+            'distributor' => $distributor
+                
+                   
+           ]);
+           return redirect('home');
+        }
+            public function add_distributor(){
+            $name = Request::input('name');
+            $address = Request::input('address');
+            $phone = Request::input('phone');
+           
+            Distributors::create([
+            'name' => $name,
+            'address' => $address,
+            'phone' => $phone,
+          
+                   
+           ]);
+           return redirect('home');
+        }
+          public function add_customer(){
+            $name = Request::input('name');
+            $address = Request::input('address');
+            $phone = Request::input('phone');
+            if( $phone === "" )
+            {
+                $phone = "None";
+            }
+            Customers::create([
+            'name' => $name,
+            'address' => $address,
+            'phone' => $phone,
+          
+                   
+           ]);
+           
+           return redirect('home');
+        }
 
 }
