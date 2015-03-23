@@ -122,5 +122,15 @@ class HomeController extends Controller {
             $data['customers'] = Customers::all();
             return view('home', compact('data'));
         }
+        public function search_product() {
+            $data = [];
+            $search_name = Request::input('search_name');                 
+            $data['users'] = User::all();
+            $data['products'] = Product::search($search_name)->get();                       
+            $data['sales'] = Sales::all();       
+            $data['distributors'] = Distributors::all();
+            $data['customers'] = Customers::all();
+            return view('home', compact('data'));
+        }
 
 }
