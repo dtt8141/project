@@ -49,7 +49,7 @@
     </div>
 </form>
 <hr/>
-<div class="row">
+<div class="row" id="products-container" data-delete-url="{{URL::to('del_products')}}" data-edit-url="{{URL::to('edit_products')}}" data-token="{!!  csrf_token()   !!}">
     <div class="col-md-12">
         <table class="table table-hover">
             <thead>
@@ -89,4 +89,41 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<div class="modal fade" id="edit-products-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Products</h4>
+      </div>
+      <div class="modal-body">
+          <div class="input-group">
+              <label>Product Name</label>
+              <input type="text" id="edit-product-name" name="edit-product-name" class="form-control">
+          </div>
+          <div class="input-group">
+              <label>Product Description</label>
+              <input type="text" id="edit-product-description"  name="edit-product-description" class="form-control">
+          </div>
+          <div class="input-group">
+              <label>Product Price</label>
+              <input type="number" id="edit-product-price" name="edit-product-price" class="form-control">
+          </div>
+          <div class="input-group">
+              <label>Product Stocks</label>
+              <input type="number" id="edit-product-stocks" name="edit-product-stocks" class="form-control">
+          </div>
+          <div class="input-group">
+              <label>Product Distributor</label>
+              <input type="text" id="edit-product-distributor" name="edit-product-distributor" class="form-control">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="edit-product-save">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

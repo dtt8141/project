@@ -1,4 +1,11 @@
 $(function () {
+    $.ajaxPrefilter(function(options, originalOptions, xhr) {
+            var token = $('meta[name="csrf_token"]').attr('content');
+
+            if (token) {
+                  return xhr.setRequestHeader('X-XSRF-TOKEN', token);
+            }
+      });
     $('#sf-total-due').val($('#sf-amount').val() * $("#sf-product-name option:selected").data('price'));
     $('#sf-product-name').change(function () {
         $("#sf-product-name option:selected").each(function () {
@@ -15,7 +22,7 @@ $(function () {
         });
     });
     $('.product-delete').click(function () {
-        $.fn.del_product($(this).data('id'), $(this).data('token'));
+        $.fn.del_product($(this).data('id'));
     });
     $('#add-customer').click(function(){
         $customer_name = $('#customer_name').val();
@@ -56,6 +63,14 @@ $(function () {
             return false;
         }
     });
+    
+    $('.product-edit').click(function(){
+        $('#edit-products-modal').data('id', $(this).data('id'));        
+        $('#edit-products-modal').modal();
+    });
+    $('#edit-product-save').click(function(){        
+        $.fn.edit_product($('#edit-products-modal').data('id'));
+    });
 
 });
 
@@ -63,24 +78,32 @@ $.fn.calculated_amount = function ($price, $amount) {
     $('#sf-total-due').val($amount * $price);
 };
 
-$.fn.del_product = function ($id, $token) {
-    var data = '{"id": "' + $id + '", "_token" : ' + $token +'}';
+$.fn.del_product = function ($id) {
+    url = $('#products-container').data('delete-url');
+    token = $('#products-container').data('token');
     $.ajax({
-        url: "del_products",
-        type: "POST",
-        dataType: 'json',
-        data: JSON.stringify(data),
-        processData: false,
-        contentType: 'application/json',
-        CrossDomain: true,
-        async: false,
-        success: function (data) {
-            console.log(data);
-        },
-        error: function (xhr, ajaxOptions, thrownError) { //Add these parameters to display the required response
-            alert(xhr.status);
-            alert(xhr.responseText);
-        }
-    });
-    
+        url: url,
+        data: {id: $id, _token: token},
+        success:function(data) {
+            window.location.href = 'home';
+         }
+    });    
 };
+
+$.fn.edit_product = function ($id) {
+    url = $('#products-container').data('edit-url');
+    token = $('#products-container').data('token');
+    name = $('#edit-product-name').val();
+    description = $('#edit-product-description').val();
+    stocks = $('#edit-product-stocks').val();
+    price = $('#edit-product-price').val();
+    distributor = $('#edit-product-distributor').val();    
+    $.ajax({
+        url: url,
+        data: {id: $id, name: name, description: description, stocks: stocks, price: price, distributor: distributor, _token: true},
+        success:function(data) {
+            window.location.href = 'home';
+            //console.log(data);  
+         }
+    });
+}

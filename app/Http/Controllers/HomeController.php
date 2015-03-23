@@ -60,8 +60,21 @@ class HomeController extends Controller {
         
         public function del_products() {
             $id = Request::input('id');
-            return Input::all();
+            $products = Product::find($id);
+            $products->delete();            
         }
+        
+        public function edit_products() {
+            $id = Request::input('id');
+            $product = Product::find($id);
+            $product->name = Request::input('name');
+            $product->description = Request::input('description');
+            $product->distributor = Request::input('distributor');
+            $product->stocks = Request::input('stocks');
+            $product->price = Request::input('price');
+            $product->save();
+        }
+        
         public function add_products(){
            $name = Request::input('product_name');
            $description = Request::input('product_description');

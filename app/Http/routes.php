@@ -14,12 +14,17 @@
 Route::get('/', 'WelcomeController@index');
 //Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
-Route::post('add_sales', 'HomeController@add_sales');
+//delete
 Route::post('del_products', 'HomeController@del_products');
-Route::post('add_products', 'HomeController@add_products');
 Route::get('del_products', 'HomeController@del_products');
+//edit
+Route::get('edit_products', 'HomeController@edit_products');
+//add
+Route::post('add_products', 'HomeController@add_products');
+Route::post('add_sales', 'HomeController@add_sales');
 Route::post('add_distributor', 'HomeController@add_distributor');
 Route::post('add_customer', 'HomeController@add_customer');
+//searh
 Route::post('search_user', 'HomeController@search_user');
 Route::post('search_product', 'HomeController@search_product');
 Route::post('search_distributor', 'HomeController@search_distributor');
