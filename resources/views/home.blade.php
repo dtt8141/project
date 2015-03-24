@@ -48,10 +48,10 @@
                             <div role="tabpanel" class="tab-pane" id="distributor">
                                 @include('partials.distributors', ['distributors' => $data['distributors']]) 
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="sales">
+                            <div role="tabpanel" class="tab-pane  active" id="sales">
                                 @include('partials.sales', ['sales' => $data['sales'], 'products' => $data['products']])
                             </div>
-                            <div role="tabpanel" class="tab-pane active" id="customers">
+                            <div role="tabpanel" class="tab-pane" id="customers">
                                 @include('partials.customers', ['customers' => $data['customers']]) 
                             </div>
                         </div>
