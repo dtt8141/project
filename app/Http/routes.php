@@ -19,8 +19,10 @@ Route::post('del_products', 'HomeController@del_products');
 Route::get('del_products', 'HomeController@del_products');
 Route::post('del_users', 'HomeController@del_users');
 Route::get('del_users', 'HomeController@del_users');
+Route::post('del_customers', 'HomeController@del_customers');
 Route::get('del_customers', 'HomeController@del_customers');
 Route::get('del_distributors', 'HomeController@del_distributors');
+Route::post('del_distributors', 'HomeController@del_distributors');
 
 //edit
 Route::get('edit_products', 'HomeController@edit_products');

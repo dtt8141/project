@@ -81,7 +81,28 @@ $(function () {
      $('.user-delete').click(function () {
         $.fn.del_users($(this).data('id'));      
     });
-    
+    //dist
+    $('#edit-distributor-save').click(function(){        
+        $.fn.edit_distributors($('#edit-distributor-modal').data('id'));
+    });
+    $('.distributor-edit').click(function(){
+        $('#edit-distributor-modal').data('id', $(this).data('id'));        
+        $('#edit-distributor-modal').modal();
+    });
+     $('.distributor-delete').click(function () {
+        $.fn.del_customers($(this).data('id'));      
+    });
+    //customer
+     $('#edit-customer-save').click(function(){        
+        $.fn.edit_customers($('#edit-customer-modal').data('id'));
+    });
+    $('.customer-edit').click(function(){
+        $('#edit-customer-modal').data('id', $(this).data('id'));        
+        $('#edit-customer-modal').modal();
+    });
+     $('.customer-delete').click(function () {
+        $.fn.del_customers($(this).data('id'));      
+    });
     
     
     //end of document ready
@@ -153,19 +174,20 @@ $.fn.del_users = function ($id) {
 };
 
 $.fn.edit_distributors = function ($id) {
-    url = $('#users-container').data('edit-url');
-    token = $('#users-container').data('token');
-    name = $('#edit-users-name').val();
-    email = $('#edit-users-email').val(); 
+    url = $('#distributor-container').data('edit-url');
+    token = $('#distributor-container').data('token');
+    name = $('#edit-distributor-name').val();
+    address = $('#edit-distributor-address').val(); 
+    phone = $('#edit-distributor-phone').val(); 
     console.log($id);
     $.ajax({
         url: url,
-        data: {id: $id, name: name, email: email, _token: true},
+        data: {id: $id, name: name, address: address, phone: phone, _token: true},
         success:function(data) {
             window.location.href = 'home';
          }
     });
-}
+    }
 
 $.fn.del_distributors = function ($id) {
     url = $('#distributor-container').data('delete-url');
@@ -178,4 +200,31 @@ $.fn.del_distributors = function ($id) {
          }
     });    
 };
-   
+
+$.fn.edit_customers = function ($id) {
+    url = $('#customer-container').data('edit-url');
+    token = $('#customer-container').data('token');
+    name = $('#edit-customer-name').val();
+    address = $('#edit-customer-address').val(); 
+    phone = $('#edit-customer-phone').val(); 
+    console.log($id);
+    $.ajax({
+        url: url,
+        data: {id: $id, name: name, address: address, phone: phone, _token: true},
+        success:function(data) {
+            window.location.href = 'home';
+         }
+    });
+    }
+
+$.fn.del_customers = function ($id) {
+    url = $('#customer-container').data('delete-url');
+    token = $('#customer-container').data('token');
+    $.ajax({
+        url: url,
+        data: {id: $id, _token: token},
+        success:function(data) {
+            window.location.href = 'home';                       
+         }
+    });    
+};

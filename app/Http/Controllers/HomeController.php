@@ -179,7 +179,7 @@ class HomeController extends Controller {
         }
         public function del_distributors() {
             $id = Request::input('id');
-            $distributors = User::find($id);
+            $distributors = Distributors::find($id);
             $distributors->delete();            
         }
         public function edit_distributors() {
@@ -188,7 +188,20 @@ class HomeController extends Controller {
             $distributor->name = Request::input('name');
             $distributor->address = Request::input('address');
             $distributor->phone = Request::input('phone');
-            $user->save();
+            $distributor->save();
         }
-
+        
+          public function del_customers() {
+            $id = Request::input('id');
+            $customers = Customers::find($id);
+            $customers->delete();  
+        }
+        public function edit_customers() {
+            $id = Request::input('id');
+            $customer = Customers::find($id);
+            $customer->name = Request::input('name');
+            $customer->address = Request::input('address');
+            $customer->phone = Request::input('phone');
+            $customer->save();
+        }
 }
