@@ -165,5 +165,30 @@ class HomeController extends Controller {
             $data['customers'] = Customers::search($search_name)->get();  
             return view('home', compact('data'));
         }
+         public function del_users() {
+            $id = Request::input('id');
+            $user = User::find($id);
+            $user->delete();            
+        }
+        public function edit_users() {
+            $id = Request::input('id');
+            $user = User::find($id);
+            $user->name = Request::input('name');
+            $user->email = Request::input('email');
+            $user->save();
+        }
+        public function del_distributors() {
+            $id = Request::input('id');
+            $distributors = User::find($id);
+            $distributors->delete();            
+        }
+        public function edit_distributors() {
+            $id = Request::input('id');
+            $distributor = Distributors::find($id);
+            $distributor->name = Request::input('name');
+            $distributor->address = Request::input('address');
+            $distributor->phone = Request::input('phone');
+            $user->save();
+        }
 
 }

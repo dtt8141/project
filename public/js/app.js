@@ -71,9 +71,26 @@ $(function () {
     $('#edit-product-save').click(function(){        
         $.fn.edit_product($('#edit-products-modal').data('id'));
     });
-
+    $('#edit-user-save').click(function(){        
+        $.fn.edit_user($('#edit-user-modal').data('id'));
+    });
+    $('.user-edit').click(function(){
+        $('#edit-user-modal').data('id', $(this).data('id'));        
+        $('#edit-user-modal').modal();
+    });
+     $('.user-delete').click(function () {
+        $.fn.del_users($(this).data('id'));      
+    });
+    
+    
+    
+    //end of document ready
 });
 
+
+
+
+// proto functions
 $.fn.calculated_amount = function ($price, $amount) {
     $('#sf-total-due').val($amount * $price);
 };
@@ -107,3 +124,58 @@ $.fn.edit_product = function ($id) {
          }
     });
 }
+
+$.fn.edit_user = function ($id) {
+    url = $('#users-container').data('edit-url');
+    token = $('#users-container').data('token');
+    name = $('#edit-users-name').val();
+    email = $('#edit-users-email').val(); 
+    console.log($id);
+    $.ajax({
+        url: url,
+        data: {id: $id, name: name, email: email, _token: true},
+        success:function(data) {
+            window.location.href = 'home';
+         }
+    });
+}
+
+$.fn.del_users = function ($id) {
+    url = $('#users-container').data('delete-url');
+    token = $('#users-container').data('token');
+    $.ajax({
+        url: url,
+        data: {id: $id, _token: token},
+        success:function(data) {
+            window.location.href = 'home';           
+         }
+    });    
+};
+
+$.fn.edit_distributors = function ($id) {
+    url = $('#users-container').data('edit-url');
+    token = $('#users-container').data('token');
+    name = $('#edit-users-name').val();
+    email = $('#edit-users-email').val(); 
+    console.log($id);
+    $.ajax({
+        url: url,
+        data: {id: $id, name: name, email: email, _token: true},
+        success:function(data) {
+            window.location.href = 'home';
+         }
+    });
+}
+
+$.fn.del_distributors = function ($id) {
+    url = $('#distributor-container').data('delete-url');
+    token = $('#distributor-container').data('token');
+    $.ajax({
+        url: url,
+        data: {id: $id, _token: token},
+        success:function(data) {
+            window.location.href = 'home';           
+         }
+    });    
+};
+   

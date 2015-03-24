@@ -49,7 +49,7 @@
     </div>
 </form>
 <hr/>
-<div class="row" id="products-container" data-delete-url="{{URL::to('del_products')}}" data-edit-url="{{URL::to('edit_products')}}" data-token="{!!  csrf_token()   !!}">
+<div class="row" id="products-ontainer" data-delete-url="{{URL::to('del_products')}}" data-edit-url="{{URL::to('edit_products')}}" data-token="{!!  csrf_token()   !!}">
     <div class="col-md-12">
         <table class="table table-hover">
             <thead>

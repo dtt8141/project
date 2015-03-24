@@ -17,8 +17,16 @@ Route::get('home', 'HomeController@index');
 //delete
 Route::post('del_products', 'HomeController@del_products');
 Route::get('del_products', 'HomeController@del_products');
+Route::post('del_users', 'HomeController@del_users');
+Route::get('del_users', 'HomeController@del_users');
+Route::get('del_customers', 'HomeController@del_customers');
+Route::get('del_distributors', 'HomeController@del_distributors');
+
 //edit
 Route::get('edit_products', 'HomeController@edit_products');
+Route::get('edit_users', 'HomeController@edit_users');
+Route::get('edit_customers', 'HomeController@edit_customers');
+Route::get('edit_distributors', 'HomeController@edit_distributors');
 //add
 Route::post('add_products', 'HomeController@add_products');
 Route::post('add_sales', 'HomeController@add_sales');

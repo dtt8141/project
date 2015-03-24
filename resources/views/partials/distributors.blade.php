@@ -39,7 +39,11 @@
         </div>
     </div>
 </form>
-<hr /><table class="table table-hover">
+<hr />
+<div class="row" id="distributor-ontainer" data-delete-url="{{URL::to('del_distributors')}}" data-edit-url="{{URL::to('edit_distributors')}}" data-token="{!!  csrf_token()   !!}">
+    <div class="col-md-12">
+
+<table class="table table-hover">
     <thead>
         <tr>
             <th>ID</th>
@@ -58,8 +62,8 @@
             <td style="min-width:100px;">                        
               @if(Auth::user()->is_admin)
               <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-                  <button type="button" class="btn btn-danger"><i class="fa fa-ban"></i></button>
+                  <button type="button" class="btn btn-warning distributor-edit" data-id="{{$distributor->id}}" data-token="<?php echo csrf_token() ?>"><i class="fa fa-edit"></i></button>
+                  <button type="button" class="btn btn-danger distributor-delete" data-id="{{$distributor->id}}" data-token="<?php echo csrf_token() ?>"><i class="fa fa-ban"></i></button>
               </div>
               @endif
 

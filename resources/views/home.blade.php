@@ -39,10 +39,10 @@
                         </ul>
                         <br />
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane" id="users">
+                            <div role="tabpanel" class="tab-pane active" id="users">
                                 @include('partials.users', ['users' => $data['users']])
                             </div>
-                            <div role="tabpanel" class="tab-pane active" id="products">
+                            <div role="tabpanel" class="tab-pane" id="products">
                                 @include('partials.products', ['products' => $data['products']])
                             </div>
                             <div role="tabpanel" class="tab-pane" id="distributor">
